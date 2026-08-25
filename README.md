@@ -17,7 +17,7 @@
 Install `JSKeyHunter` directly from GitHub with a single command:
 
 ```bash
-go install github.com/supreamhacker/JSKeyHunter@latest
+go install github.com/supreamhacker/jskeyhunter@latest
 
 (Ensure your $GOPATH/bin or $HOME/go/bin is in your system's PATH)
 
