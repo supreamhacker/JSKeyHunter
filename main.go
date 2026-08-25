@@ -11,6 +11,7 @@ import (
 	"github.com/fatih/color"
 )
 
+var banner = `
 
       | |/ ____| |/ /           | | | |              | |           
       | | (___ | ' / ___ _   _  | |_| |_   _ _ __  __| |_ ___ _ __ 
@@ -19,14 +20,13 @@ import (
  | |__| |____) | . \  __/ |_| | | | | | |_| | | | | (_| | ||  __/ |   
   \____/|_____/|_|\_\___|\__, | |_| |_|\__,_|_| |_|\__,_|\__\___|_|   
                           __/ |                                       
-                         |___/                                        
-                                              
-[!] JSKeyHunter: Ultimate Secret & Token Extractor
-[!] File/List Mode | 100+ Optimized Patterns | Zero Noise
-------------------------------------------------------
+                         |___/                                        {
+  
+ [!] JSKeyHunter: Ultimate Secret & Token Extractor
+ [!] File/List Mode | 100+ Optimized Patterns | Zero Noise
+ ----------------------------------------------------------
 `
 
-// --- MEGA OPTIMIZED REGEX DATABASE ---
 var secretPatterns = map[string]*regexp.Regexp{
 	"AWS Access Key":      regexp.MustCompile(`AKIA[0-9A-Z]{16}`),
 	"AWS Secret/Key":      regexp.MustCompile(`(?i)(aws_secret_access_key|aws_secret_key|aws_access_key_id|secret_access_key)\s*[:=]\s*['"]?[A-Za-z0-9/+=]{20,40}['"]?`),
@@ -70,7 +70,6 @@ type Finding struct {
 func main() {
 	fmt.Print(cyan(banner))
 
-	// Flags: -f for single file, -l for list of files
 	filePtr := flag.String("f", "", "Scan a single file (.js, .txt, .json, etc.)")
 	listPtr := flag.String("l", "", "Scan a list of files from a .txt file")
 	outPtr := flag.String("o", "", "Output file (e.g., target.txt)")
@@ -109,7 +108,6 @@ func main() {
 	}
 }
 
-// --- Scan a List of Files from a .txt file ---
 func scanList(listPath string) []Finding {
 	var allFindings []Finding
 	file, err := os.Open(listPath)
@@ -129,18 +127,17 @@ func scanList(listPath string) []Finding {
 	return allFindings
 }
 
-// --- Scan a Single File (Any extension: .js, .txt, .json, etc.) ---
 func scanFile(filePath string) []Finding {
 	var findings []Finding
 	file, err := os.Open(filePath)
 	if err != nil {
-		return findings // Silently skip if a file in the list doesn't exist
+		return findings
 	}
 	defer file.Close()
 
 	scanner := bufio.NewScanner(file)
 	buf := make([]byte, 0, 64*1024)
-	scanner.Buffer(buf, 1024*1024) // 1MB buffer for minified/long lines
+	scanner.Buffer(buf, 1024*1024)
 
 	lineNum := 1
 	for scanner.Scan() {
