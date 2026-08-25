@@ -20,7 +20,7 @@ var banner = `
  | |__| |____) | . \  __/ |_| | | | | | |_| | | | | (_| | ||  __/ |   
   \____/|_____/|_|\_\___|\__, | |_| |_|\__,_|_| |_|\__,_|\__\___|_|   
                           __/ |                                       
-                         |___/                                        {
+                         |___/                                        
   
  [!] JSKeyHunter: Ultimate Secret & Token Extractor
  [!] File/List Mode | 100+ Optimized Patterns | Zero Noise
