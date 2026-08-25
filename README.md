@@ -4,6 +4,9 @@
 
 `JSKeyHunter` is a high-performance, zero-noise cybersecurity tool written in **Golang**. Instead of scanning entire folders, it precisely targets specific files (`.js`, `.txt`, `.json`, `.env`) or a text file containing a list of file paths, extracting exposed API keys, tokens, and secrets using 100+ highly optimized regex patterns.
 
+<img width="1042" height="577" alt="image" src="https://github.com/user-attachments/assets/abc3072d-7f09-4845-bac7-b4dec5537ecb" />
+
+
 ## ✨ Features
 
 - 🎯 **Precise File Targeting:** Scan single files or a `.txt` list of files (No noisy folder scanning).
@@ -14,7 +17,7 @@
 
 ## 📦 Installation
 
-Install `JSKeyHunter` directly from GitHub with a single command:
+Install `jskeyhunter` directly from GitHub with a single command:
 
 ```bash
 go install github.com/supreamhacker/jskeyhunter@latest
@@ -24,23 +27,23 @@ go install github.com/supreamhacker/jskeyhunter@latest
 🛠️ Usage
 1. Scan a Single File (.js, .txt, .json, etc.)
 
-JSKeyHunter -f app.js -o target.txt
-JSKeyHunter -f config.json -o target.txt
+jskeyhunter -f app.js -o target.txt
+jskeyhunter -f config.json -o target.txt
 
 2. Scan a List of Files from a .txt File (Recommended)
 Create a paths.txt file with one file path per line:
 
 Then run:
 
-JSKeyHunter -l paths.txt -o target.txt
+jskeyhunter -l paths.txt -o target.txt
 
 3. View Help Menu
 
-JSKeyHunter -h
+jskeyhunter -h
 
 Help Output:
 
-Usage of JSKeyHunter:
+Usage of jskeyhunter:
   -f string
         Scan a single file (.js, .txt, .json, etc.)
   -l string
@@ -51,7 +54,7 @@ Usage of JSKeyHunter:
 
 ⚠️ Disclaimer & Ethical Use
 
-JSKeyHunter is intended strictly for Educational Purposes, Authorized Bug Bounty Hunting, and Internal Security Auditing.
+jskeyhunter is intended strictly for Educational Purposes, Authorized Bug Bounty Hunting, and Internal Security Auditing.
 DO NOT use this tool to scan targets you do not own or have explicit written permission to test.
 The authors are not responsible for any misuse or damage caused by this tool. Use it responsibly. 🛡️
 
