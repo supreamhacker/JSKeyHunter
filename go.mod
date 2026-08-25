@@ -1,4 +1,4 @@
-module github.com/supreamhacker/JSKeyHunter
+module github.com/supreamhacker/jskeyhunter
 
 go 1.21
 
